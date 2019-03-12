@@ -12,8 +12,10 @@
         <module name="eureka-server" />
         <module name="service-feign" />
         <module name="service-hi-zipkin" />
+        <module name="service-lucy" />
         <module name="service-miya" />
         <module name="service-ribbon" />
+        <module name="service-turbine" />
         <module name="service-zuul" />
         <module name="springcloud" />
       </profile>
@@ -27,8 +29,10 @@
       <module name="eureka-server" options="-parameters" />
       <module name="service-feign" options="-parameters" />
       <module name="service-hi-zipkin" options="-parameters" />
+      <module name="service-lucy" options="-parameters" />
       <module name="service-miya" options="-parameters" />
       <module name="service-ribbon" options="-parameters" />
+      <module name="service-turbine" options="-parameters" />
       <module name="service-zuul" options="-parameters" />
     </option>
   </component>

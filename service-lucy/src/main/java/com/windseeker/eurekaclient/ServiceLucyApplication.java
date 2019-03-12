@@ -18,18 +18,18 @@ import org.springframework.web.bind.annotation.RestController;
 @EnableHystrix
 @EnableHystrixDashboard
 @EnableCircuitBreaker
-public class EurekaClientApplication {
+public class ServiceLucyApplication {
 
 
     @Value("${server.port}")
     String port;
 
     public static void main(String[] args) {
-        SpringApplication.run(EurekaClientApplication.class, args);
+        SpringApplication.run(ServiceLucyApplication.class, args);
     }
 
 
-    @RequestMapping("/hi")
+    @RequestMapping("/hello")
     @HystrixCommand(fallbackMethod = "hiError")
     public String home(@RequestParam(value = "name", defaultValue = "forezp") String name) {
         return "hi " + name + " ,i am from port:" + port;
