@@ -11,6 +11,8 @@
         <module name="eureka-client" />
         <module name="eureka-server" />
         <module name="service-feign" />
+        <module name="service-hi-zipkin" />
+        <module name="service-miya" />
         <module name="service-ribbon" />
         <module name="service-zuul" />
         <module name="springcloud" />
@@ -24,6 +26,8 @@
       <module name="eureka-client" options="-parameters" />
       <module name="eureka-server" options="-parameters" />
       <module name="service-feign" options="-parameters" />
+      <module name="service-hi-zipkin" options="-parameters" />
+      <module name="service-miya" options="-parameters" />
       <module name="service-ribbon" options="-parameters" />
       <module name="service-zuul" options="-parameters" />
     </option>
