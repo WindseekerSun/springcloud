@@ -12,6 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.Enumeration;
+import java.util.logging.Logger;
+
 @SpringBootApplication
 @EnableEurekaClient
 @RestController
@@ -20,7 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 @EnableCircuitBreaker
 public class EurekaClientApplication {
 
-
+    private static final Logger logger=Logger.getLogger(EurekaClientApplication.class.getName());
     @Value("${server.port}")
     String port;
 
@@ -31,11 +35,18 @@ public class EurekaClientApplication {
 
     @RequestMapping("/hi")
     @HystrixCommand(fallbackMethod = "hiError")
-    public String home(@RequestParam(value = "name", defaultValue = "forezp") String name) {
+    public String home(@RequestParam(value = "name", defaultValue = "forezp") String name, HttpServletRequest request) {
+
+        Enumeration en=request.getAttributeNames();
+        while(en.hasMoreElements()) {
+            String s = (String) en.nextElement();
+            Object str = request.getAttribute(name);
+            logger.info(s+":"+str);
+        }
         return "hi " + name + " ,i am from port:" + port;
     }
 
-    public String hiError(String name) {
+    public String hiError(String name,HttpServletRequest request) {
         return "hi,"+name+",sorry,error!";
     }
 
